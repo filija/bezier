@@ -89,6 +89,14 @@ void    bezierBernsteinPolynom(int quality, const S_Vector *points, S_Vector *li
 {
   // Toto musi byt na zacatku funkce, nemazat.
   point2d_vecClean(line_points);
+  double sum1; 
+  double sum2;
+  for(int i=0; i < quality; i++)
+  {
+      sum1+=BernsteinPolynom(quality, i, 0.5);
+      sum2+=BernsteinPolynom(quality, i, 0.5);
+      line_points->reserved=sum1/sum2;
+  }
 
 }
 
